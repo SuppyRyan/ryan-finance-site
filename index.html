@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ryan Lin | Strategic Finance & Analytics</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Ryan Lin</h1>
+  <p>Audit • Strategic Finance • Financial Modeling • Tech Analytics</p>
+  <a class="btn" href="resume.pdf" download>Download Resume</a>
+</header>
+
+<section>
+  <h2>About</h2>
+  <p>
+    Finance professional bridging audit, valuation, and automation.
+    Experienced in GAAP compliance, financial modeling, and data-driven
+    decision support within high-growth environments.
+  </p>
+</section>
+
+<section>
+  <h2>Interactive Finance Dashboard</h2>
+  <canvas id="revenueChart"></canvas>
+</section>
+
+<section>
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>Audit Risk Analytics Automation</h3>
+    <p>Python-based transaction risk scoring system analyzing 50K+ transactions.</p>
+    <a class="btn" href="projects/audit-risk-analytics.ipynb" download>Download Project</a>
+  </div>
+
+  <div class="card">
+    <h3>SaaS FP&A Financial Model</h3>
+    <p>36-month forecasting model tracking ARR, churn, LTV/CAC, and runway.</p>
+    <a class="btn" href="projects/saas-model.xlsx" download>Download Project</a>
+  </div>
+
+  <div class="card">
+    <h3>M&A Valuation Model</h3>
+    <p>DCF and comparable company valuation model with sensitivity analysis.</p>
+    <a class="btn" href="projects/ma-valuation-model.xlsx" download>Download Project</a>
+  </div>
+
+</section>
+
+<section>
+  <h2>Finance Insights</h2>
+  <div class="card">
+    <h3>How SaaS Unit Economics Drive Valuation</h3>
+    <p>Understanding ARR growth, churn dynamics, and capital efficiency in tech firms.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Contact: ryanlinbusinesses@gmail.com</p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/rynlin" target="_blank">linkedin.com/in/rynlin</a></p>
+</footer>
+
+<script>
+const ctx = document.getElementById('revenueChart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Year 1','Year 2','Year 3','Year 4','Year 5'],
+    datasets: [{
+      label: 'Projected Revenue ($M)',
+      data: [5,8,12,18,26],
+      borderColor: '#3b82f6',
+      fill: false
+    }]
+  },
+  options: {
+    responsive: true
+  }
+});
+</script>
+
+</body>
+</html>
