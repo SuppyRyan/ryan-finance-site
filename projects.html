@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo">RL</div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="blog.html">Insights</a>
+  </div>
+</nav>
+
+<section class="glass">
+  <h2>M&A Valuation Calculator</h2>
+  <input type="number" id="fcf" placeholder="FCF">
+  <input type="number" id="wacc" placeholder="WACC">
+  <input type="number" id="growthRate" placeholder="Growth">
+  <button onclick="calculateVal()">Calculate</button>
+  <h3 id="valOutput"></h3>
+</section>
+
+<section class="glass">
+  <h2>Download Full Models</h2>
+  <a href="projects/saas-model.xlsx" download>SaaS Model</a><br>
+  <a href="projects/audit-risk-analytics.ipynb" download>Audit Analytics</a><br>
+  <a href="projects/ma-valuation-model.xlsx" download>M&A Model</a>
+</section>
+
+<script>
+function calculateVal(){
+  let fcf = parseFloat(document.getElementById("fcf").value);
+  let w = parseFloat(document.getElementById("wacc").value)/100;
+  let g = parseFloat(document.getElementById("growthRate").value)/100;
+  let val = (fcf*(1+g))/(w-g);
+  document.getElementById("valOutput").innerText = "Enterprise Value: $" + val.toFixed(2) + "M";
+}
+</script>
+
+</body>
+</html>
