@@ -4,135 +4,42 @@
 <meta charset="UTF-8">
 <title>Ryan Lin | Strategic Finance & Analytics</title>
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.ico">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script defer src="app.js"></script>
 </head>
 <body>
+
+<nav class="nav">
+  <div class="logo">RL</div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="blog.html">Insights</a>
+    <a href="resume.pdf" download>Resume</a>
+    <button onclick="toggleTheme()" class="theme-btn">🌙</button>
+  </div>
+</nav>
 
 <header class="hero">
   <h1>Ryan Lin</h1>
   <p>Strategic Finance • Audit • Financial Modeling • Tech Analytics</p>
-  <a class="btn" href="resume.pdf" download>Download Resume</a>
 </header>
 
-<section>
+<section class="glass">
   <h2>Interactive SaaS Revenue Simulator</h2>
-
-  <div class="input-group">
-    <label>Monthly Growth Rate (%)</label>
-    <input type="range" id="growth" min="1" max="15" value="6">
-    <span id="growthValue">6%</span>
-  </div>
-
+  <input type="range" id="growth" min="1" max="15" value="6">
   <canvas id="revenueChart"></canvas>
 </section>
 
-<section>
-  <h2>Audit Risk Analytics Demo</h2>
-
-  <button class="btn" onclick="generateRisk()">Generate Sample Risk Data</button>
-  <div id="riskOutput"></div>
-</section>
-
-<section>
-  <h2>M&A Valuation Calculator</h2>
-
-  <div class="input-group">
-    <label>Year 5 Free Cash Flow ($M)</label>
-    <input type="number" id="fcf" value="50">
-  </div>
-
-  <div class="input-group">
-    <label>WACC (%)</label>
-    <input type="number" id="wacc" value="9">
-  </div>
-
-  <div class="input-group">
-    <label>Terminal Growth (%)</label>
-    <input type="number" id="growthRate" value="3">
-  </div>
-
-  <button class="btn" onclick="calculateValuation()">Calculate Enterprise Value</button>
-  <h3 id="valuationResult"></h3>
-</section>
-
-<section>
-  <h2>Download Full Models</h2>
-
-  <div class="card">
-    <h3>SaaS FP&A Model</h3>
-    <a class="btn" href="projects/saas-model.xlsx" download>Download Excel Model</a>
-  </div>
-
-  <div class="card">
-    <h3>Audit Risk Analytics (Python)</h3>
-    <a class="btn" href="projects/audit-risk-analytics.ipynb" download>Download Notebook</a>
-  </div>
-
-  <div class="card">
-    <h3>M&A Valuation Model</h3>
-    <a class="btn" href="projects/ma-valuation-model.xlsx" download>Download Model</a>
-  </div>
+<section class="glass">
+  <h2>Live Market Snapshot</h2>
+  <div id="stockData">Loading...</div>
 </section>
 
 <footer>
-  <p>Contact: ryanlinbusinesses@gmail.com</p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/rynlin" target="_blank">linkedin.com/in/rynlin</a></p>
+  © 2026 Ryan Lin
 </footer>
-
-<script>
-
-const ctx = document.getElementById('revenueChart');
-let chart;
-
-function buildChart(growthRate) {
-
-  let revenue = 5;
-  let dataPoints = [];
-
-  for (let i = 0; i < 5; i++) {
-    revenue *= (1 + growthRate/100);
-    dataPoints.push(revenue.toFixed(1));
-  }
-
-  if (chart) chart.destroy();
-
-  chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ['Year 1','Year 2','Year 3','Year 4','Year 5'],
-      datasets: [{
-        label: 'Projected Revenue ($M)',
-        data: dataPoints,
-        borderColor: '#3b82f6'
-      }]
-    }
-  });
-}
-
-document.getElementById("growth").addEventListener("input", function() {
-  document.getElementById("growthValue").innerText = this.value + "%";
-  buildChart(this.value);
-});
-
-buildChart(6);
-
-function generateRisk() {
-  let riskScore = Math.floor(Math.random() * 100);
-  document.getElementById("riskOutput").innerHTML =
-    "<p>High Risk Transactions Identified: " + riskScore + "</p>";
-}
-
-function calculateValuation() {
-  let fcf = parseFloat(document.getElementById("fcf").value);
-  let wacc = parseFloat(document.getElementById("wacc").value) / 100;
-  let growth = parseFloat(document.getElementById("growthRate").value) / 100;
-
-  let value = (fcf * (1 + growth)) / (wacc - growth);
-  document.getElementById("valuationResult").innerText =
-    "Estimated Enterprise Value: $" + value.toFixed(2) + "M";
-}
-
-</script>
 
 </body>
 </html>
