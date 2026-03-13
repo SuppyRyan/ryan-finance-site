@@ -1,3 +1,0 @@
-git add .
-git commit -m "Live price feeds: Binance WS + Yahoo Finance + full SEO"
-git push origin main
