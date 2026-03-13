@@ -1,45 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Ryan Lin | Strategic Finance & Analytics</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="favicon.ico">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="app.js"></script>
-</head>
-<body>
-
-<nav class="nav">
-  <div class="logo">RL</div>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="blog.html">Insights</a>
-    <a href="resume.pdf" download>Resume</a>
-    <button onclick="toggleTheme()" class="theme-btn">🌙</button>
-  </div>
-</nav>
-
-<header class="hero">
-  <h1>Ryan Lin</h1>
-  <p>Strategic Finance • Audit • Financial Modeling • Tech Analytics</p>
-</header>
-
-<section class="glass">
-  <h2>Interactive SaaS Revenue Simulator</h2>
-  <input type="range" id="growth" min="1" max="15" value="6">
-  <canvas id="revenueChart"></canvas>
-</section>
-
-<section class="glass">
-  <h2>Live Market Snapshot</h2>
-  <div id="stockData">Loading...</div>
-</section>
-
-<footer>
-  © 2026 Ryan Lin
-</footer>
-
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ryan Lin — Finance &amp; Analytics Portfolio</title>
+    <meta name="description" content="Ryan Lin — M&A Audit Staff at Hood & Strong LLP. Live DCF, SaaS KPI, CRE, and portfolio models. UC Riverside 3.96 GPA. CFA Level I Candidate." />
+    <meta name="keywords" content="Ryan Lin, finance analyst, DCF, financial modeling, audit, M&A, CRE, Berkshire Hathaway, Hood Strong, UC Riverside, CFA, Python, SQL" />
+    <meta name="author" content="Ryan Lin" />
+    <meta property="og:title" content="Ryan Lin — Finance &amp; Analytics" />
+    <meta property="og:description" content="Live interactive financial models: NVIDIA DCF, Spotify SaaS KPI, multi-asset portfolio optimizer, CRE underwriting, real-time market terminal." />
+    <meta property="og:url" content="https://ryan-finance-site.vercel.app" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
